@@ -20,19 +20,29 @@ services:
     ports:
       - "3000:3000"
   
-  gitea:
-    image: gitea/gitea:1.22.0
-    container_name: gitea-server
-    environment:
-      - USER_UID=1000
-      - USER_GID=1000
-    volumes:
-      - ./gitea:/data   # Stores repos and configs persistently
-    ports:
-      - "4000:3000"     # Gitea web UI now on http://localhost:4000
-      - "222:22"        # SSH for Git
+  # gitea:
+  #   image: gitea/gitea:1.22.0
+  #   container_name: gitea-server
+  #   environment:
+  #     - USER_UID=1000
+  #     - USER_GID=1000
+  #   volumes:
+  #     - ./gitea:/data   # Stores repos and configs persistently
+  #   ports:
+  #     - "4000:3000"     # Gitea web UI now on http://localhost:4000
+  #     - "222:22"        # SSH for Git
+  #   restart: always
+  git-server:
+    build:
+      dockerfile: gitserver.Dockerfile
+      context: .
     restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./repos:/var/www/git
 
+      
   selenium-server:
     image: selenium/standalone-chrome:latest
     container_name: selenium-server
@@ -69,7 +79,7 @@ services:
     volumes:
       - postgresql:/var/lib/postgresql
 
-      
+
 volumes:
   sonarqube_data:
   sonarqube_extensions:

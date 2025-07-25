@@ -28,7 +28,7 @@ jobs:
                     run: cd backend && npm install --save-dev eslint @microsoft/eslint-formatter-sarif
 
                 -   name: Run ESLint 
-                    run: cd backend && npx eslint -f @microsoft/eslint-formatter-sarif -o report.sarif
+                    run: cd backend && npx eslint . -f @microsoft/eslint-formatter-sarif -o report.sarif
 
 
                 -   name: Upload ESLint SARIF Report
