@@ -1,0 +1,38 @@
+name: e2e-tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          npm install
+
+      - name: Build & Start All Services (backend, nginx, selenium)
+        run: |
+          sudo docker compose up --build -d
+
+      - name: Wait for containers to be ready
+        run: |
+          echo "Waiting for services..."
+          sleep 20
+
+      - name: Run Mocha Tests
+        run: |
+          cd backend
+          npx mocha test/selenium.test.js

@@ -33,5 +33,10 @@ services:
       - "222:22"        # SSH for Git
     restart: always
 
-
+  selenium-server:
+    image: selenium/standalone-chrome:latest
+    container_name: selenium-server
+    ports:
+      - "4444:4444"
+    shm_size: 2g 
   # git-server:
