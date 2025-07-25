@@ -1,0 +1,336 @@
+{
+  "version": "2.1.0",
+  "$schema": "http://json.schemastore.org/sarif-2.1.0-rtm.5",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ESLint",
+          "informationUri": "https://eslint.org",
+          "rules": [
+            {
+              "id": "no-unused-vars",
+              "helpUri": "https://eslint.org/docs/latest/rules/no-unused-vars",
+              "properties": {},
+              "shortDescription": {
+                "text": "Disallow unused variables"
+              }
+            },
+            {
+              "id": "security-node/detect-crlf",
+              "helpUri": "https://github.com/gkouziik/eslint-plugin-security-node/blob/master/docs/rules/detect-crlf.md",
+              "properties": {
+                "category": "Possible Errors"
+              },
+              "shortDescription": {
+                "text": "detect log forging attack "
+              }
+            },
+            {
+              "id": "security-node/detect-dangerous-redirects",
+              "helpUri": "https://github.com/gkouziik/eslint-plugin-security-node/blob/master/docs/rules/detect-dangerous-redirects.md",
+              "properties": {
+                "category": "Possible Errors"
+              },
+              "shortDescription": {
+                "text": "detect dangerous redirects"
+              }
+            },
+            {
+              "id": "no-undef",
+              "helpUri": "https://eslint.org/docs/latest/rules/no-undef",
+              "properties": {},
+              "shortDescription": {
+                "text": "Disallow the use of undeclared variables unless mentioned in `/*global */` comments"
+              }
+            }
+          ],
+          "version": "9.31.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/code/SSD/Practical/backend/eslint.config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/code/SSD/Practical/backend/server.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/code/SSD/Practical/backend/test/selenium.test.js"
+          }
+        }
+      ],
+      "results": [
+        {
+          "level": "error",
+          "message": {
+            "text": "'isSafeInput' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/server.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 10,
+                  "endLine": 17,
+                  "endColumn": 21
+                }
+              }
+            }
+          ],
+          "ruleId": "no-unused-vars",
+          "ruleIndex": 0
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Detect console.log() with non Literal argument"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/server.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 28,
+                  "endLine": 28,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "ruleId": "security-node/detect-crlf",
+          "ruleIndex": 1
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Detect console.log() with non Literal argument"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/server.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 41,
+                  "endLine": 35,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "ruleId": "security-node/detect-crlf",
+          "ruleIndex": 1
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "detect res.redirect() with non literal argument"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/server.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 16,
+                  "endLine": 45,
+                  "endColumn": 73
+                }
+              }
+            }
+          ],
+          "ruleId": "security-node/detect-dangerous-redirects",
+          "ruleIndex": 2
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Detect console.log() with non Literal argument"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/server.js",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 15,
+                  "endLine": 54,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "ruleId": "security-node/detect-crlf",
+          "ruleIndex": 1
+        },
+        {
+          "level": "error",
+          "message": {
+            "text": "'process' is not defined."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/test/selenium.test.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 21,
+                  "endLine": 4,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "ruleId": "no-undef",
+          "ruleIndex": 3
+        },
+        {
+          "level": "error",
+          "message": {
+            "text": "'describe' is not defined."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/test/selenium.test.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1,
+                  "endLine": 13,
+                  "endColumn": 9
+                }
+              }
+            }
+          ],
+          "ruleId": "no-undef",
+          "ruleIndex": 3
+        },
+        {
+          "level": "error",
+          "message": {
+            "text": "'before' is not defined."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/test/selenium.test.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 3,
+                  "endLine": 17,
+                  "endColumn": 9
+                }
+              }
+            }
+          ],
+          "ruleId": "no-undef",
+          "ruleIndex": 3
+        },
+        {
+          "level": "error",
+          "message": {
+            "text": "'after' is not defined."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/test/selenium.test.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 3,
+                  "endLine": 24,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "ruleId": "no-undef",
+          "ruleIndex": 3
+        },
+        {
+          "level": "error",
+          "message": {
+            "text": "'it' is not defined."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/test/selenium.test.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 3,
+                  "endLine": 28,
+                  "endColumn": 5
+                }
+              }
+            }
+          ],
+          "ruleId": "no-undef",
+          "ruleIndex": 3
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Detect console.log() with non Literal argument"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/code/SSD/Practical/backend/test/selenium.test.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 17,
+                  "endLine": 29,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "ruleId": "security-node/detect-crlf",
+          "ruleIndex": 1
+        }
+      ]
+    }
+  ]
+}
