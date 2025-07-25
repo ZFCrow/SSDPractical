@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Result</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Search Result</h1>
+  <p id="result"></p>
+
+  <script>
+    // Get query parameters
+    const params = new URLSearchParams(window.location.search);
+    const term = params.get('term') || "No term provided";
+
+    // Safely set text (innerText avoids XSS)
+    document.getElementById('result').innerText = `You searched for: ${term}`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Page</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { padding: 8px; margin: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Page 1</h1>
+  <input type="text" id="userInput" placeholder="Type something..." />
+  <button id="submitBtn">Submit</button>
+
+  <script>
+    document.getElementById('submitBtn').addEventListener('click', async () => {
+      const value = document.getElementById('userInput').value;
+      // Send the value to backend
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ input: value })
+      });
+
+      if (res.redirected) {
+        // Redirect if backend sent a redirect
+        window.location.href = res.url;
+        
+      } else {
+        const data = await res.json();
+        alert(data.message);
+        document.getElementById('userInput').value = ""; // Clear input if invalid
+      }
+    });
+  </script>
+</body>
+</html>
