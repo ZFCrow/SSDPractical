@@ -35,4 +35,4 @@ jobs:
       - name: Run Mocha Tests
         run: |
           cd backend
-          npx mocha test/selenium.test.js
+          npx mocha
